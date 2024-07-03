@@ -3,6 +3,24 @@
 ###############################################################################
 * text=auto
 
+# Ignore node_modules directory
+node_modules/* linguist-vendored
+
+# Ignore minified JavaScript files
+*.min.js linguist-vendored
+
+# Ignore JavaScript files
+*.js linguist-vendored
+
+# Ignore Bootstrap files
+bootstrap/* linguist-vendored
+
+# Treat C# files as C# for language stats
+*.cs linguist-language=C#
+
+
+
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
