@@ -15,8 +15,15 @@ node_modules/* linguist-vendored
 # Ignore Bootstrap files
 bootstrap/* linguist-vendored
 
+# Ignore HTML files
+*.html linguist-vendored
+
 # Treat C# files as C# for language stats
 *.cs linguist-language=C#
+
+# Specify the primary language of the repository
+* linguist-language=C#
+
 
 
 
