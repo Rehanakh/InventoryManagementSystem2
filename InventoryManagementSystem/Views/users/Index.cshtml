@@ -1,0 +1,70 @@
+﻿@model IEnumerable<InventoryManagementSystem.user>
+
+@{
+    ViewBag.Title = "User Management";
+}
+
+ 
+
+<p>
+    @Html.ActionLink("Add New User", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.u_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.u_username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.u_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.u_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.u_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.role.r_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.u_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.u_username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.u_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.u_email)
+        </td>
+        <td>
+            @if (item.u_status == 1)
+            {
+                @Html.Label("Active");
+            }
+            else
+            {
+                @Html.Label("In-Active");
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.role.r_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.u_id }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.u_id }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.u_id })
+        </td>
+    </tr>
+}
+
+</table>

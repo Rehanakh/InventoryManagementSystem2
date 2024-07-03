@@ -1,0 +1,47 @@
+﻿@model IEnumerable<InventoryManagementSystem.category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Add New Category", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cat_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cat_status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cat_name)
+        </td>
+        <td>
+            @{
+                if (item.cat_status == Convert.ToByte(1))
+                {
+                    <p>Active</p>
+                }
+                else if (item.cat_status == Convert.ToByte(0))
+                {
+                    <p>In Active</p>
+                }
+
+            }
+            @*@Html.DisplayFor(modelItem => item.cat_status)*@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cat_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cat_id })
+        </td>
+    </tr>
+}
+
+</table>

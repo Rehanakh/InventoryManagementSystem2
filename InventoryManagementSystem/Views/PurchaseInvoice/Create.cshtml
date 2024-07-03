@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+<script src="~/Scripts/jquery-3.7.1.js"></script>
+<script src="~/Scripts/TableJS.js"></script>
+<link rel="stylesheet" href="~/Content/Site.css">
+<h2>Purchase Invoice...</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.Label("Date")
+    <br />
+    <input type="date" id="datePicker" name="datePicker" />
+    <br />
+    @Html.Label("Suppliers")
+    <br />
+    @Html.DropDownList("Supplier", ViewBag.suppList as SelectList)
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Barcode</th>
+                <th>Expiry</th>
+                <th>No. of Cartons</th>
+                <th>Per Carton Quantity</th>
+                <th>Buying Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.Editor("ProductName")</td>
+                <td>@Html.Editor("ProductBarcode")</td>
+                <td><input type="date" id="exdatePicker" name="exdatePicker" /></td>
+                <td>@Html.Editor("CartonTxt")</td>
+                <td>@Html.Editor("pieceTxt")</td>
+                <td> @Html.Editor("buyingTxt")</td>
+                <td><input type="button" value="ADD" class="click" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>PRODUCT</th>
+                <th>BARCODE</th>
+                <th>EXPIRY</th>
+                <th>NO. Of CARTONS</th>
+                <th>PER CARTON</th>
+                <th>BUYING PRICE</th>
+
+            </tr>
+        </thead>
+        <tbody class="tbody">
+        </tbody>
+    </table>
+
+    <input type='button' value='DELETE' class='del' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
